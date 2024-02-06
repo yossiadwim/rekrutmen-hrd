@@ -1,0 +1,69 @@
+.card-container {
+    padding: 20px 25px 30px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.bg-card {
+    /* background: linear-gradient(116.62deg, #42E695 1.48%, #3BB2B8 96.99%);
+     */
+    background: rgb(255, 255, 255);
+    border: 0;
+}
+
+.bg-card:hover{
+    background-color: #eaeaea;
+}
+
+
+.bg-button {
+    background-color: rgba(222, 222, 222, 0);
+    border-color: rgba(222, 222, 222, 1);
+
+}
+
+.bg-button:hover {
+    background-color: rgba(222, 222, 222, 0.5);
+    border-color: rgba(222, 222, 222, 1);
+
+}
+
+.fa-bell:hover{
+    color: rgba(222, 222, 222, 0.5);
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #008800;
+    border-right-color: #80ff80;
+    animation: l2 1s infinite linear;
+}
+
+@keyframes l2 {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+.content {
+    /* Your content styles go here */
+    display: none;
+    /* Initially hide the content */
+}
+

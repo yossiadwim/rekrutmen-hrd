@@ -1,0 +1,12 @@
+.btn-instrumen{
+    text-align: left;
+    color: #43a047;
+    background-color: white;
+    border-color: #43a047 !important;
+}
+
+.btn-instrumen:hover {
+    background-color: #43a047;
+    color: #ffffff !important;
+
+}

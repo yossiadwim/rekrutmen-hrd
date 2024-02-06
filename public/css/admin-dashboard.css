@@ -1,0 +1,20 @@
+
+.btn-bg:active{
+    background-color: #1B9A07;
+    border-color: #1B9A07;
+    color: #fff;
+}
+
+.btn-success:hover{
+    background-color: #005f00;
+}
+
+.btn-warning:hover{
+    background-color: #a38300;
+    border-color: #a38300;
+}
+
+#button-create-lowongan:hover{
+    background-color: #ac3f00;
+    border-color: #ac3f00;
+}
