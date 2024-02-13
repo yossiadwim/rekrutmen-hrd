@@ -9,6 +9,7 @@ use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ApplicationFormController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\FirebaseAuthController;
 use App\Http\Controllers\PengalamanKerjaController;
 use App\Http\Controllers\ReferensiController;
 use App\Models\TesTertulis;
@@ -35,6 +36,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
+// Route::post('/register-firebase',[FirebaseAuthController::class, 'createUserToFirebase']);
 Route::get('/register/createSlug', [RegisterController::class, 'checkSlug']);
 
 Route::get('/markasread-notification-admin/{id}', [AdminDashboardController::class, 'markasread']);

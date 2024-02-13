@@ -31,4 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'firebase' => [
+        'credentials' => [
+            'file' => env('FIREBASE_CREDENTIALS'),
+        ],
+        'database_url' => '<your-firebase-database-url>',
+    ],
+    
+
 ];

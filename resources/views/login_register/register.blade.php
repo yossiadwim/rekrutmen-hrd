@@ -30,8 +30,7 @@
                                 class="form-control rounded @error('nama_pelamar')
                       is-invalid
                     @enderror"
-                                id="nama_pelamar" placeholder="name@example.com" 
-                                value="{{ old('nama_pelamar') }}">
+                                id="nama_pelamar" placeholder="name@example.com" value="{{ old('nama_pelamar') }}">
                             <label for="name_pelamar">Nama Lengkap</label>
                             @error('nama_pelamar')
                                 <div class="invalid-feedback">
@@ -42,7 +41,7 @@
                         </div>
                         <div class="form-floating" hidden>
                             <input type="text" class="form-control rounded mt-3" id="slug" name="slug"
-                                value="{{ old('slug') }}" >
+                                value="{{ old('slug') }}">
                             <label for="slug">Slug</label>
                         </div>
 
@@ -78,7 +77,7 @@
                                 class="form-control rounded mt-3 @error('password')
                       is-invalid
                     @enderror"
-                                id="password" placeholder="Password" >
+                                id="password" placeholder="Password">
                             <label for="password">Password</label>
                             @error('password')
                                 <div class="invalid-feedback">
@@ -91,7 +90,7 @@
                                 class="form-control rounded mt-3 @error('confirm_password')
                       is-invalid
                     @enderror"
-                                id="password_confirmation" placeholder="Konfirmasi Password" >
+                                id="password_confirmation" placeholder="Konfirmasi Password">
                             <label for="password">Konfirmasi Password</label>
                             @error('confirm_password')
                                 <div class="invalid-feedback">
@@ -104,6 +103,8 @@
                                 type="submit">Daftar</button>
 
                         </div>
+
+
                     </form>
                     <small class="d-block text-center mt-3">Sudah mempunyai Akun? <a href="/login">Login</a></small>
                     <small class="d-block text-center mt-3">atau login dengan</small>
@@ -151,4 +152,6 @@
             loader.style.display = 'none';
         }, 2500); // Simulate a 2-second delay; replace with actual form submission time
     });
+
+
 </script>
