@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg border shadow">
+<nav class="navbar navbar-expand-lg border shadow-sm sticky-top" style="background-color: #ffffff">
     <div class="container ">
         <a class="navbar-brand" href="/main"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

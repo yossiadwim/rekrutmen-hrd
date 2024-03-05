@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Storage;
 
 class LowonganKerjaController extends Controller
 {
+
     public function index()
     {
         try {

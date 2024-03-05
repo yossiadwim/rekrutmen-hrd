@@ -1,39 +1,3 @@
-{{-- 
-<div class="container">
-    <div class="row g-2 mt-2 mb-4">
-        @for ($i = 0; $i < count($computer_skills); $i++)
-            <div class="form-check col-3">
-                <input class="form-check-input" type="checkbox" value="{{ $computer_skills[$i] }}" id="flexCheckDefault"
-                    name="nama_kemampuan[]" id="keahlian_komputer">
-                <label class="form-check-label" for="flexCheckDefault">
-                    {{ Str::title($computer_skills[$i]) }}
-                </label>
-            </div>
-        @endfor
-    </div>
-    <div class="row g-2 mt-2 mb-4">
-        <div class="mt-4 mb-4 mx-2">
-            <h3 class="fw-bold">Software/Perangkat Lunak</h3>
-        </div>
-        @for ($i = 0; $i < count($software); $i++)
-            <div class="form-check col-3">
-                <input class="form-check-input" type="checkbox" value="{{ $software[$i] }}" id="flexCheckDefault"
-                    name="software[]" id="software">
-                <label class="form-check-label" for="flexCheckDefault">
-                    {{ Str::title($software[$i]) }}
-                </label>
-            </div>
-        @endfor
-    </div>
-    <div class="form-check col-2">
-        <input class="form-check-input" type="checkbox" id="flexCheckDefault" id="lainnya">
-        <label class="form-check-label" for="flexCheckDefault">
-            Lainnya
-        </label>
-    </div>
-</div> --}}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,10 +26,21 @@
 
         @include('partials.notification_pelamar')
 
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5 mb-5 border rounded">
             <h3>
-                <p class="fw-bold">Application Form - Keahlian Komputer</p>
+                <p class="fw-bold mt-3">Application Form - Keahlian Komputer</p>
             </h3>
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show mt-3">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
             <form action="/{{ $lowongan->slug }}/application-form/data-keahlian-komputer" method="post">
                 @csrf
                 <div class="container">
@@ -73,8 +48,8 @@
                         @for ($i = 0; $i < count($computer_skills); $i++)
                             <div class="form-check col-3">
                                 <input class="form-check-input" type="checkbox" value="{{ $computer_skills[$i] }}"
-                                    id="flexCheckDefault" name="nama_kemampuan[]" id="keahlian_komputer">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    name="nama_kemampuan[]" id="keahlian_komputer-{{ $computer_skills[$i] }}">
+                                <label class="form-check-label" for="keahlian_komputer-{{ $computer_skills[$i] }}">
                                     {{ Str::title($computer_skills[$i]) }}
                                 </label>
                             </div>
@@ -84,7 +59,7 @@
                     <div class="form-check col-2">
                         <input class="form-check-input" type="checkbox" id="skillKomputerLainnya"
                             onclick="showInputAnotherComputerSkill()">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <label class="form-check-label" for="skillKomputerLainnya">
                             Lainnya
                         </label>
                     </div>
@@ -104,8 +79,8 @@
                         @for ($i = 0; $i < count($software); $i++)
                             <div class="form-check col-3">
                                 <input class="form-check-input" type="checkbox" value="{{ $software[$i] }}"
-                                    id="flexCheckDefault" name="software[]" id="software">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    name="software[]" id="software-{{ $software[$i] }}">
+                                <label class="form-check-label" for="software-{{ $software[$i] }}">
                                     {{ Str::title($software[$i]) }}
                                 </label>
                             </div>
@@ -114,8 +89,8 @@
 
                     <div class="form-check col-2">
                         <input class="form-check-input" type="checkbox" id="softwareLainnya"
-                            onclick="showInputAnotherSoftware()">
-                        <label class="form-check-label" for="flexCheckDefault">
+                            onclick="showInputAnotherSoftware()" name="softwareLainnya">
+                        <label class="form-check-label" for="softwareLainnya">
                             Lainnya
                         </label>
                     </div>
@@ -130,9 +105,9 @@
                     </div>
                 </div>
 
-                <div class="mt-5">
-                    <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-                    <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+                <div class="mt-5 mb-5 d-flex justify-content-end">
+                    <button type="button" name="previous" id="previous-button" class="btn btn-primary mx-2">Sebelumnya</button>
+                    <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
                 </div>
             </form>
 

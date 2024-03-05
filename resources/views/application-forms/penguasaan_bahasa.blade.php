@@ -25,9 +25,9 @@
 
         @include('partials.notification_pelamar')
 
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5 mb-5 border rounded">
             <h3>
-                <p class="fw-bold">Application Form - Penguasaan Bahasa</p>
+                <p class="fw-bold mt-3">Application Form - Penguasaan Bahasa</p>
             </h3>
             <form action="/{{ $lowongan->slug }}/application-form/data-penguasaan-bahasa" method="post">
                 @csrf
@@ -45,6 +45,10 @@
 
                         </tbody>
                     </table>
+
+                    <input type="number" name="counter_row_penguasaan_bahasa" id="counter_row_penguasaan_bahasa"
+                        style="display: none" value="0">
+
                 </div>
 
                 <div class="col-3 mt-4">
@@ -52,9 +56,9 @@
                             style="color: #ffffff;"></i> Tambah</button>
                 </div>
 
-                <div class="mt-5">
-                    <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-                    <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+                <div class="mt-5 d-flex justify-content-end mb-5">
+                    <button type="button" name="previous" id="previous-button" class="btn btn-primary mx-2">Sebelumnya</button>
+                    <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
                 </div>
 
             </form>
@@ -131,6 +135,7 @@
             row_language.append(col_language);
             $("#table-body-penguasaan-bahasa").append(row_language);
             total_row_penguasaan_bahasa.value++;
+            console.log("row penguasaan bahasa " + total_row_penguasaan_bahasa.value);
 
 
         });
@@ -138,46 +143,10 @@
         $(document).on("click", "#remove-language-row", function() {
             $(this).closest("tr").remove();
             total_row_penguasaan_bahasa.value--;
-        });
-
-        $('#add-training-row').click(function(e) {
-            var row_pelatihan = $('<tr>')
-            var col_pelatihan = "";
-
-            col_pelatihan += ` 
-        <td class="col-5">
-            <input type="text" class="form-control" id="subjek_pelatihan" name="subjek_pelatihan[]" placeholder="Subjek Pelatihan" required>
-        </td>
-        <td class="col-1">
-            <select name="tahun_pelatihan[]" id="tahun_pelatihan" class="form-select" aria-label="Default select example" required>
-            <?php
-            $currentYear = \Carbon\Carbon::now()->format('Y');
-            $startYear = 1950; // Change this to your desired start year
-            
-            for ($year = $currentYear; $year >= $startYear; $year--) {
-                echo '<option value="' . $year . '">' . $year . '</option>';
-            }
-            
-            ?>
-            </select>
-        </td>
-        <td class="col-5">
-            <input type="text" class="form-control" name="nama_mentor[]" id="nama_mentor" placeholder="Nama Mentor" required>
-        </td>
-
-            <td> <button type="button" class="btn btn-danger" id="remove-pelatihan-row"></i> Hapus</button></td>`
-
-
-
-            row_pelatihan.append(col_pelatihan);
-            $("#table-body-pelatihan").append(row_pelatihan);
-            total_row_pelatihan.value++;
+            console.log("row penguasaan bahasa " + total_row_penguasaan_bahasa.value)
 
         });
 
-        $(document).on("click", "#remove-pelatihan-row", function() {
-            $(this).closest("tr").remove();
-            total_row_pelatihan.value--;
-        });
+
     })
 </script>

@@ -52,11 +52,6 @@ class RegisterController extends Controller
         $validated_data_user['password'] = Hash::make($validated_data_user['password']);
         $validated_data_user['uuid'] = Uuid::uuid4();
 
-        $user_properties = [
-            'email' => $validated_data_user['email'],
-            'password' => $validated_data_user['password'],
-        ];
-
         if (strpos($validated_data_pelamar['email'], '@satunama.org') !== false) {
 
             $validated_data_user['role'] = 'admin';

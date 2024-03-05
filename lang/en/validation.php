@@ -163,10 +163,21 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'nama_anak.*' => [
+            'required' => 'Nama anak tidak boleh kosong',
+        ],
+        'umur_anak.*' => [
+            'required' => 'Umur anak tidak boleh kosong',
+        ],
+        'nama_kemampuan.*' => [
+            'required' => '',
         ],
     ],
+    // 'custom' => [
+    //     'attribute-name' => [
+    //         'rule-name' => 'custom-message',
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------

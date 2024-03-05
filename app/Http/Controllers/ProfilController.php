@@ -298,7 +298,7 @@ class ProfilController extends Controller
             'nama_pasangan' => 'nullable',
         ]);
         if ($request->hobi) {
-            $hobi = implode(', ', $request->hobi);
+            $hobi = implode(',', $request->hobi);
             $validatedData['hobi'] = $hobi;
         }
         $formattedCurrency = $request->ekspetasi_gaji; // Example formatted currency string

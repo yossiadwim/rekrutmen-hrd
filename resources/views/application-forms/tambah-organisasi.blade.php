@@ -19,15 +19,18 @@
 </head>
 
 
-<body style="font-family: Poppins;" >
+<body style="font-family: Poppins;">
 
     @include('partials.navbar')
 
     @include('partials.notification_pelamar')
 
-    <div class="container mt-5 mb-5">
-        <h3 class="fw-bold">Application Form - Data Organisasi yang Pernah Diikuti</h3>
-        <form action="/{{ $lowongan->slug }}/application-form/data-kontak-darurat" method="post">
+    <div class="container mt-5 mb-5 border rounded">
+        <div class="mt-3">
+            <h3 class="fw-bold">Application Form - Data Organisasi yang Pernah Diikuti</h3>
+
+        </div>
+        <form action="/{{ $lowongan->slug }}/application-form/data-pengalaman-organisasi" method="post">
             @csrf
             <table class="table mt-4" id="table-pengalaman-organisasi">
                 <caption>Sebutkan nama organisasi dimana anda menjadi anggota, atau dahulu pernah menjadi anggota
@@ -40,15 +43,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <td>
+                    {{-- <td>
                         <input type="text" class="form-control" id="nama_organisasi" name="nama_organisasi"
                             placeholder="Nama Organisasi">
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="posisi" name="posisi" placeholder="Posisi">
+                        <input type="text" class="form-control" id="posisi" name="posisi_di_organisasi" placeholder="Posisi">
                     </td>
-                    <td> <button type="button" class="btn btn-danger" id="remove-family-row"></i> Hapus</button>
-                    </td>
+                    
+                    <td> <button type="button" class="btn btn-danger" id="remove-organization-row"></i> Hapus</button>
+                    </td> --}}
+                    <input type="number" name="counter_row_organisasi" id="counter_row_organisasi"
+                        style="display: none" value="0">
                 </tbody>
             </table>
             <div class="col-3 mt-4">
@@ -56,9 +62,10 @@
                         style="color: #ffffff;"></i> Tambah</button>
             </div>
 
-            <div class="mt-5">
-                <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-                <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+            <div class="mt-5 mb-5 d-flex justify-content-end">
+                <button type="button" name="previous" id="previous-button"
+                    class="btn btn-primary mx-2">Sebelumnya</button>
+                <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
             </div>
         </form>
 

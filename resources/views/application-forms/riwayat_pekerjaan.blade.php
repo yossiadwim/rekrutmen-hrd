@@ -26,10 +26,13 @@
 
         @include('partials.notification_pelamar')
 
-        <div class="container mt-5 mb-5">
-            <h3>
-                <p class="fw-bold">Application Form - Pengalaman Kerja</p>
-            </h3>
+        <div class="container mt-5 mb-5 border rounded">
+            <div class="mt-3">
+                <h3>
+                    <p class="fw-bold">Application Form - Pengalaman Kerja</p>
+                </h3>
+
+            </div>
             <form action="/{{ $lowongan->slug }}/application-form/data-pengalaman-kerja" method="post">
                 @csrf
                 @if ($pengalamanKerjaExists)
@@ -101,6 +104,11 @@
                         </tbody>
                     </table>
 
+                    <input type="number" name="counter_row_riwayat_pekerjaan" id="counter_row_riwayat_pekerjaan"
+                        style="display: none" value="0">
+
+
+
                     <div class="col-3 mt-4">
                         <button type="button" class="btn btn-success" id="add-work-row"><i class="fa-solid fa-plus"
                                 style="color: #ffffff;"></i> Tambah</button>
@@ -125,15 +133,18 @@
 
                         </tbody>
                     </table>
+                    <input type="number" name="counter_row_riwayat_pekerjaan" id="counter_row_riwayat_pekerjaan"
+                        style="display: none" value="0">
+
                     <div class="col-3 mt-4">
                         <button type="button" class="btn btn-success" id="add-work-row"><i class="fa-solid fa-plus"
                                 style="color: #ffffff;"></i> Tambah</button>
                     </div>
                 @endif
-                <div class="mt-5">
+                <div class="mt-5 mb-5 d-flex justify-content-end">
                     <button type="button" name="previous" id="previous-button"
-                        class="btn btn-primary">Sebelumnya</button>
-                    <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+                        class="btn btn-primary mx-2">Sebelumnya</button>
+                    <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
                 </div>
 
             </form>

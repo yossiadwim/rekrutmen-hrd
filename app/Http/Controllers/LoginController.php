@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
-use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -27,7 +26,6 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-
         $credential = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required|min:5',
@@ -37,8 +35,18 @@ class LoginController extends Controller
             ->get();
 
         try {
+
             $signInResult = $this->firebaseAuth->signInWithEmailAndPassword($credential['email'], $credential['password']);
+
             if ($signInResult && Auth::attempt($credential)) {
+                if ($user[0]->role == 'admin') {
+                    $request->session()->regenerate();
+                    return redirect()->intended('/admin-dashboard/lowongan');
+                } elseif ($user[0]->role == 'user') {
+                    $request->session()->regenerate();
+                    return redirect()->intended('/lowongan-kerja');
+                }
+            } elseif ($signInResult == null && Auth::attempt($credential)) {
                 if ($user[0]->role == 'admin') {
                     $request->session()->regenerate();
                     return redirect()->intended('/admin-dashboard/lowongan');
@@ -58,16 +66,6 @@ class LoginController extends Controller
             // Handle other authentication errors
             return response()->json(['error' => 'AUTHENTICATION_ERROR'], 500);
         }
-
-        // if (Auth::attempt($credential)) {
-        //     if ($user[0]->role == 'admin') {
-        //         $request->session()->regenerate();
-        //         return redirect()->intended('/admin-dashboard/lowongan');
-        //     } elseif ($user[0]->role == 'user') {
-        //         $request->session()->regenerate();
-        //         return redirect()->intended('/lowongan-kerja');
-        //     }
-        // }
 
         return back()->with('loginError', 'Email atau Password salah');
     }

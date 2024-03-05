@@ -35,15 +35,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                
+
                 @if (session()->has('session timeout'))
-                <div class="container justify-content-center mt-3 col-8">
-                    <div class="alert alert-info alert-dismissible fade show" role="alert" style="text-align: center">
-                        {{ session('session timeout') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="container justify-content-center mt-3 ">
+                        <div class="alert alert-info alert-dismissible fade show" role="alert"
+                            style="text-align: center">
+                            {{ session('session timeout') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                     </div>
-                </div>
-            @endif
+                @endif
 
                 {{-- @if ($errors->any())
                     @foreach ($errors->all() as $error)

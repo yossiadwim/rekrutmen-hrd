@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,10 +25,13 @@
 
     @include('partials.notification_pelamar')
 
-    <div class="container mt-5 mb-5">
-        <h3>
-            <p class="fw-bold">Application Form - Kontak Darurat</p>
-        </h3>
+    <div class="container mt-5 mb-5 border rounded">
+        <div class="mt-3">
+            <h3>
+                <p class="fw-bold">Application Form - Kontak Darurat</p>
+            </h3>
+
+        </div>
         <form action="/{{ $lowongan->slug }}/application-form/data-kontak-darurat" method="post">
             @csrf
             <table class="table mt-4" id="tableKontakDarurat">
@@ -47,21 +48,36 @@
                 </thead>
                 <tbody id="table-kontak-darurat">
                     <tr id="table-row-kontak-darurat">
-                        <td>
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                        {{-- <td>
+                            <input type="text" class="form-control" id="nama_kontak" name="nama_kontak[]"
+                                placeholder="Nama">
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="hubungan" name="hubungan"
-                                placeholder="Hubungan">
+
+                            <select class="form-select" id="hubungan_kontak" name="hubungan_kontak[]"
+                                aria-label="Floating label select example">
+                                <option value="" selected disabled>Pilih</option>
+                                <option value="ayah">Ayah</option>
+                                <option value="ibu">Ibu</option>
+                                <option value="kakak">Kakak</option>
+                                <option value="adik">Adik</option>
+                                <option value="paman">Paman</option>
+                                <option value="bibi">Bibi</option>
+                                <option value="kakek">Kakek</option>
+                                <option value="nenek">Nenek</option>
+                            </select>
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="telepon" name="telepon"
+                            <input type="text" class="form-control" id="telepon" name="telepon_kontak[]"
                                 placeholder="Telepon">
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="alamat" name="alamat"
+                            <input type="text" class="form-control" id="alamat" name="alamat_kontak[]"
                                 placeholder="Alamat">
-                        </td>
+                        </td> --}}
+                        <input type="number" name="counter_row_kontak_darurat" id="counter_row_kontak_darurat"
+                            style="display: none" value="0">
+
                     </tr>
                 </tbody>
             </table>
@@ -70,9 +86,10 @@
                         class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah</button>
             </div>
 
-            <div class="mt-5">
-                <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-                <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+            <div class="mt-5 mb-5 d-flex justify-content-end">
+                <button type="button" name="previous" id="previous-button"
+                    class="btn btn-primary mx-2">Sebelumnya</button>
+                <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
             </div>
         </form>
 

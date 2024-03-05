@@ -25,10 +25,15 @@
 
         @include('partials.notification_pelamar')
 
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5 mb-5 border rounded">
+            <div class="mt-3">
+
+                <h3 class="fw-bold mb-5">Application Form - Data Pelatihan yang Pernah Diikuti</h3>
+            </div>
             <form action="/{{ $lowongan->slug }}/application-form/data-pelatihan-yang-diikuti" method="post">
                 @csrf
                 <table class="table mt-4" id="tablePelatihan">
+                    <caption>Catatan: Tambahkan pelatihan yang pernah Anda ikuti</caption>
                     <thead class="text-center">
                         <tr>
                             <th scope="col">Subjek</th>
@@ -41,17 +46,65 @@
 
                     </tbody>
                 </table>
-
+                <input type="number" name="counter_row_pelatihan" id="counter_row_pelatihan" style="display: none"
+                    value="0">
 
                 <div class="col-3 mt-4">
                     <button type="button" class="btn btn-success" id="add-training-row"><i class="fa-solid fa-plus"
                             style="color: #ffffff;"></i> Tambah</button>
                 </div>
 
-                <div class="mt-5">
+
+
+
+
+                <div class="mt-5 mb-5 d-flex justify-content-end">
                     <button type="button" name="previous" id="previous-button"
-                        class="btn btn-primary">Sebelumnya</button>
-                    <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+                        class="btn btn-primary mx-2">Sebelumnya</button>
+                    {{-- <button type="submit" id="submit_form" name="next" class="btn btn-secondary mx-2">Kirim Application
+                        Form</button> --}}
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Kirim Application Form
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Konfirmasi</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-align-justify">
+                                    <p>
+                                        I hereby certify that the above information given by me is true to the best of my
+                                        knowledge
+                                        and understand that any false information contained in the above application may
+                                        result
+                                        in
+                                        my immediate dismissal from the position gained at SATUNAMA Foundation
+                                    </p>
+
+                                    <p>
+                                        Saya menyatakan bahwa keterangan tersebut diatas adalah benar dan apabila ada
+                                        keterangan
+                                        yang tidak benar saya bersedia dikeluarkan dari posisi yang saya dapatkan di Yayasan
+                                        SATUNAMA
+                                    </p>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+                                    <button type="submit" id="submit_form" name="next" class="btn btn-success">Kirim
+                                        
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </form>
@@ -122,12 +175,14 @@
             row_pelatihan.append(col_pelatihan);
             $("#table-body-pelatihan").append(row_pelatihan);
             total_row_pelatihan.value++;
+            console.log("row pelatihan " + total_row_pelatihan.value);
 
         });
 
         $(document).on("click", "#remove-pelatihan-row", function() {
             $(this).closest("tr").remove();
             total_row_pelatihan.value--;
+            console.log("row pelatihan " + total_row_pelatihan.value);
         });
 
     });

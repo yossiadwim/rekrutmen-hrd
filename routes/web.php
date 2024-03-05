@@ -12,6 +12,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FirebaseAuthController;
 use App\Http\Controllers\PengalamanKerjaController;
 use App\Http\Controllers\ReferensiController;
+use App\Models\Lowongan;
 use App\Models\TesTertulis;
 
 /*
@@ -28,7 +29,6 @@ use App\Models\TesTertulis;
 Route::get('/lowongan-kerja', [LowonganKerjaController::class, 'index']);
 Route::post('/lowongan-kerja/{lowongan}', [LowonganKerjaController::class, 'apply']);
 Route::get('/lowongan-kerja/{lowongan:slug}/detail', [LowonganKerjaController::class, 'show']);
-// Route::get('lowongan-kerja/{departemen:kode_departemen}', [LowonganKerjaController::class,'filterByDepartement']);
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/login', [LoginController::class, 'index']);
@@ -36,19 +36,15 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
-// Route::post('/register-firebase',[FirebaseAuthController::class, 'createUserToFirebase']);
 Route::get('/register/createSlug', [RegisterController::class, 'checkSlug']);
 
 Route::get('/markasread-notification-admin/{id}', [AdminDashboardController::class, 'markasread']);
 Route::get('/markasread/{id}', [LowonganKerjaController::class, 'markAsRead']);
 
-// Route::get('/profil-kandidat/{users:slug}',[ProfilController::class,'show']);
 Route::post('/profil-kandidat/users/{user:uuid}/description', [ProfilController::class, 'description']);
 Route::get('/lamaran-saya/{user:uuid}', [ProfilController::class, 'my_application']);
 Route::get('/pengaturan-akun/{user:uuid}', [ProfilController::class, 'accountSettings']);
-// Route::get('/profil-kandidat/users/{user:slug}/application-form/{lowongan}', [ProfilController::class, 'application_form'])->middleware('authlogin');
 Route::get('/profil-kandidat/users/{user:slug}/offering/{lowongan}', [ProfilController::class, 'offering']);
-// Route::put('/profil-kandidat/users/{user:slug}/send-application-form', [ProfilController::class, 'send_application_form']);
 Route::post('/profil-kandidat/users/{user:slug}/changeAccountSettings', [ProfilController::class, 'changeAccountSettings']);
 
 Route::get('/{lowongan}/application-form', [ApplicationFormController::class, 'step1'])->name('application-form.tambah-data-pribadi');
@@ -104,3 +100,5 @@ Route::middleware('authlogin')->group(function () {
     Route::post('/admin-dashboard/lowongan/{lowongan:slug}/detail-pelamar/reference-check', [AdminDashboardController::class, 'referenceCheck']);
     Route::resource('/admin-dashboard/lowongan', AdminDashboardController::class);
 });
+
+

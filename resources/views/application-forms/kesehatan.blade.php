@@ -27,8 +27,8 @@
 
     @include('partials.notification_pelamar')
 
-    <div class="container mt-5">
-        <div class="">
+    <div class="container mt-5 mb-5 border rounded">
+        <div class="mt-3">
             <h3>
                 <p class="fw-bold">Application Form - Kondisi Kesehatan</p>
             </h3>
@@ -41,8 +41,8 @@
                     @for ($i = 0; $i < count($illness); $i++)
                         <div class="form-check col-3">
                             <input class="form-check-input" type="checkbox" value="{{ $illness[$i] }}"
-                                id="flexCheckDefault" name="kondisi_kesehatan[]" id="kondisi_kesehatan">
-                            <label class="form-check-label" for="flexCheckDefault">
+                                id="kondisi_kesehatan-{{ $illness[$i] }}" name="kondisi_kesehatan[]" id="kondisi_kesehatan">
+                            <label class="form-check-label" for="kondisi_kesehatan-{{ $illness[$i] }}">
                                 {{ Str::title($illness[$i]) }}
                             </label>
                         </div>
@@ -50,8 +50,8 @@
 
                     <div class="form-check col-3">
                         <input class="form-check-input" type="checkbox" value=""
-                            name="kondisi_kesehatan" id="kondisi_kesehatan_lainnya" onclick="showInputAnotherIll()">
-                        <label class="form-check-label" for="flexCheckDefault">
+                            name="kondisi_kesehatan_lainnya" id="kondisi_kesehatan_lainnya" onclick="showInputAnotherIll()">
+                        <label class="form-check-label" for="kondisi_kesehatan_lainnya">
                             Lainnya
                         </label>
                         
@@ -75,12 +75,12 @@
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="adakah_penyakit_serius_lainnya"
                             id="radioYa" value="ya" onclick="showHideInputSeriousIll()">
-                        <label class="form-check-label" for="inlineRadio1">Ya</label>
+                        <label class="form-check-label" for="radioYa">Ya</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="adakah_penyakit_serius_lainnya"
                             id="radioTidak" value="tidak" onclick="showHideInputSeriousIll()">
-                        <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                        <label class="form-check-label" for="radioTidak">Tidak</label>
                     </div>
 
                     <div class="mb-3 mt-3 col-6" id="group_input_penyakit_serius_lainnya" style="display: none">
@@ -142,10 +142,10 @@
                 </div>
             </div>
 
-            <div class="mt-5">
+            <div class="mt-5 mb-5 d-flex justify-content-end">
                 <button type="button" name="previous" id="previous-button"
-                    class="btn btn-primary">Sebelumnya</button>
-                <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+                    class="btn btn-primary mx-2">Sebelumnya</button>
+                <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
             </div>
 
 

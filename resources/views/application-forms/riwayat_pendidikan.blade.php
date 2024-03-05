@@ -23,10 +23,13 @@
 
     @include('partials.notification_pelamar')
 
-    <div class="container mt-5 mb-5">
-        <h3>
-            <p class="fw-bold">Application Form - Riwayat Pendidikan</p>
-        </h3>
+    <div class="container mt-5 mb-5 rounded border">
+        <div class="mt-3">
+            <h3>
+                <p class="fw-bold">Application Form - Riwayat Pendidikan</p>
+            </h3>
+
+        </div>
         @if ($pendidikanExists)
             <form action="/{{ $lowongan->slug }}/application-form/data-riwayat-pendidikan" method="post">
                 @csrf
@@ -255,17 +258,20 @@
 
                     </tbody>
 
-                    
+
                 </table>
+                <input type="number" name="counter_row_riwayat_pendidikan" id="counter_row_riwayat_pendidikan"
+                    style="display: none" value="0">
 
                 <div class="col-3 mt-4">
                     <button type="button" class="btn btn-success" id="add-education-row"><i
                             class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah</button>
                 </div>
-                
-                <div class="mt-5">
-                    <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-                    <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+
+                <div class="mt-5 mb-5 d-flex justify-content-end">
+                    <button type="button" name="previous" id="previous-button"
+                        class="btn btn-primary mx-2">Sebelumnya</button>
+                    <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
                 </div>
             </form>
 
@@ -339,18 +345,22 @@
                 </tr> --}}
                 </table>
 
+                <input type="number" name="counter_row_riwayat_pendidikan" id="counter_row_riwayat_pendidikan"
+                    style="display: none" value="0">
+
                 <div class="col-3 mt-4">
                     <button type="button" class="btn btn-success" id="add-education-row"><i
                             class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah</button>
+                </div>
+                <div class="mt-5 d-flex justify-content-end">
+                    <button type="button" name="previous" id="previous-button"
+                        class="btn btn-primary mx-2">Sebelumnya</button>
+                    <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
                 </div>
             </form>
 
         @endif
 
-        {{-- <div class="mt-5">
-            <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-            <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
-        </div> --}}
 
     </div>
 

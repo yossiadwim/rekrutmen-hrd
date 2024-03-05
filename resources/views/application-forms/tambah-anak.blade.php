@@ -27,7 +27,7 @@
 
         @include('partials.notification_pelamar')
 
-        <div class="container mt-5 mb-3">
+        <div class="container mt-5 mb-3 ">
             @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show mt-3">
                     <ul>
@@ -38,10 +38,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <h3 class="fw-bold">Application Form - Data Anak</h3>
+           
         </div>
 
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5 mb-5 border rounded">
+            <div class="mt-3">
+                <h3 class="fw-bold">Application Form - Data Anak</h3>
+            </div>
             <form action="/{{ $lowongan->slug }}/application-form/data-anak" method="POST">
                 @csrf
                 <table class="table mt-4" id="tableAnak">
@@ -55,13 +58,13 @@
                         </tr>
                     </thead>
                     <tbody id="table-body-children">
-                        <td>
+                        {{-- <td>
                             <input type="text" class="form-control" id="nama_anak" name="nama_anak[]"
-                                placeholder="Nama Anak" required>
+                                placeholder="Nama Anak" >
                         </td>
                         <td>
                             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin_anak[]"
-                                aria-label="Floating label select example" required>
+                                aria-label="Floating label select example" >
                                 <option value="" selected disabled>Pilih</option>
                                 <option value="laki-laki">Laki-laki</option>
                                 <option value="perempuan">Perempuan</option>
@@ -70,23 +73,23 @@
                         </td>
                         <td>
                             <input type="number" class="form-control" name="umur_anak[]" id="umur" placeholder="Umur"
-                                min="0" required>
+                                min="0" >
                         </td>
                         <td id="col-4">
                             <button type="button" class="btn btn-danger" id="remove-children-row">Hapus</button>
-                        </td>
+                        </td> --}}
                     </tbody>
                 </table>
                 <div class="col-3 mt-4">
                     <button type="button" class="btn btn-success" id="add-children-row"><i class="fa-solid fa-plus"
                             style="color: #ffffff;"></i> Tambah</button>
 
-                    <input type="number" name="counter_row_anak" id="counter_row_anak" style="display: none" value="1">
+                    <input type="number" name="counter_row_anak" id="counter_row_anak" style="display: none" value="0">
                 </div>
 
-                <div class="mt-5">
-                    <button type="button" name="previous" id="previous-button" class="btn btn-primary">Sebelumnya</button>
-                    <button type="submit" name="next" class="btn btn-secondary">Selanjutnya</button>
+                <div class="mt-5 mb-5 d-flex justify-content-end ">
+                    <button type="button" name="previous" id="previous-button" class="btn btn-primary mx-2">Sebelumnya</button>
+                    <button type="submit" name="next" class="btn btn-secondary mx-2">Selanjutnya</button>
                 </div>
 
             </form>
