@@ -5,7 +5,7 @@
         </div>
         @if ($pendidikanExists)
             <div class="col-4">
-                <a href="/profil-kandidat/users/{{ $user->slug }}/education" class="btn bg-btn btn-success border-0"
+                <a href="/profil-kandidat/users/{{ $user->uuid }}/education" class="btn bg-btn btn-success border-0"
                     data-bs-toggle="modal" data-bs-target="#pendidikan"><i class="bi bi-plus-circle-fill"></i> Tambahkan
                     pendidikan</a>
             </div>
@@ -96,7 +96,7 @@
 
         @if (!$pendidikanExists)
             <!-- Button trigger modal -->
-            <a href="/profil-kandidat/users/{{ $user->slug }}/education" class="btn btn-success border-0"
+            <a href="/profil-kandidat/users/{{ $user->uuid }}/education" class="btn btn-success border-0"
                 data-bs-toggle="modal" data-bs-target="#pendidikan"><i class="bi bi-plus-circle-fill"></i> Tambahkan
                 pendidikan</a>
 

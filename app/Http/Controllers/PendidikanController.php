@@ -44,7 +44,7 @@ class PendidikanController extends Controller
         );
 
         Pendidikan::create($validatedData);
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success add education', 'Berhasil menambah informasi pendidikan');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success add education', 'Berhasil menambah informasi pendidikan');
     }
 
     /**
@@ -82,7 +82,7 @@ class PendidikanController extends Controller
             ]
         );
         Pendidikan::where('id_pendidikan', $pendidikan->id_pendidikan)->update($validatedData);
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success update education', 'Berhasil mengubah informasi pendidikan');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success update education', 'Berhasil mengubah informasi pendidikan');
     }
 
     /**
@@ -94,6 +94,6 @@ class PendidikanController extends Controller
         $user_slug = $user->pluck('slug');
         
         Pendidikan::destroy($pendidikan->id_pendidikan);
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success delete education', 'Berhasil menghapus pengalaman kerja');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success delete education', 'Berhasil menghapus pengalaman kerja');
     }
 }

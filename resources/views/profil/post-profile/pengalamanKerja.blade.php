@@ -11,7 +11,7 @@
         </div>
         @if ($pengalamanKerjaExists)
             <div class="col-4 text-align-right">
-                <a href="/profil-kandidat/users/{{ $user->slug }}/work-experience"
+                <a href="/profil-kandidat/users/{{ $user->uuid }}/work-experience"
                     class="btn btn-success bg-btn border-0" data-bs-toggle="modal" data-bs-target="#pengalamanKerja"><i
                         class="bi bi-plus-circle-fill"></i>
                     Tambahkan pengalaman kerja</a>
@@ -109,7 +109,7 @@
     <div class="col-md-12 mt-5 mb-1 d-flex justify-content-center">
 
         @if (!$pengalamanKerjaExists)
-            <a href="/profil-kandidat/users/{{ $user->slug }}/work-experience"
+            <a href="/profil-kandidat/users/{{ $user->uuid }}/work-experience"
                 class="btn btn-success border-0 mt-5 mb-5" data-bs-toggle="modal"
                 data-bs-target="#pengalamanKerja"><i class="bi bi-plus-circle-fill"></i>
                 Tambahkan pengalaman kerja</a>

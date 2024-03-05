@@ -6,7 +6,7 @@
 
         <!-- Button trigger modal -->
         @if ($user->pelamar->deskripsi == null)
-              <a href="/profil-kandidat/users/{{ $user->slug }}/description" class="btn btn-success border-0 mt-5 mb-5 "
+              <a href="/profil-kandidat/users/{{ $user->uuid }}/description" class="btn btn-success border-0 mt-5 mb-5 "
                 data-bs-toggle="modal" data-bs-target="#deskripsiModal"><i class="bi bi-plus-circle-fill"></i>
                 Tambahkan deskripsi tentang Anda</a>
                 
@@ -20,7 +20,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" id="close"
                                 aria-label="Close" onclick="hapusData()"></button>
                         </div>
-                        <form action="/profil-kandidat/users/{{ $user->slug }}/description" method="post"
+                        <form action="/profil-kandidat/users/{{ $user->uuid }}/description" method="post"
                             id="formDeskripsiDiri">
                             @csrf
                             <div class="modal-body">
@@ -46,7 +46,7 @@
                     </article>
                 </div>
                 <div class="col-2">
-                    <a href="/profil-kandidat/users/{{ $user->slug }}/description"
+                    <a href="/profil-kandidat/users/{{ $user->uuid }}/description"
                         class="btn btn-success border-0 mt-5 mb-5" data-bs-toggle="modal"
                         data-bs-target="#deskripsiModal"><i class="bi bi-pencil-fill"></i>
                         Edit</a>
@@ -61,7 +61,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" id="close"
                                         aria-label="Close" onclick="hapusData()"></button>
                                 </div>
-                                <form action="/profil-kandidat/users/{{ $user->slug }}/description" method="post"
+                                <form action="/profil-kandidat/users/{{ $user->uuid }}/description" method="post"
                                     id="formDeskripsiDiri">
                                     @csrf
                                     <div class="modal-body">

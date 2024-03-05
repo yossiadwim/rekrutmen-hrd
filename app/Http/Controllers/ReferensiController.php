@@ -27,7 +27,7 @@ class ReferensiController extends Controller
         ]);
 
         Referensi::create($validatedData);
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success add reference', 'Berhasil menambah referensi');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success add reference', 'Berhasil menambah referensi');
     }
 
     
@@ -48,7 +48,7 @@ class ReferensiController extends Controller
         ]);
 
         Referensi::where('id_referensi', $referensi->id_referensi)->update($validatedData);
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success update reference', 'Berhasil mengubah referensi');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success update reference', 'Berhasil mengubah referensi');
 
     }
 
@@ -58,7 +58,7 @@ class ReferensiController extends Controller
         $user_slug = $user->pluck('slug');
 
         Referensi::destroy($referensi->id_referensi);
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success delete reference', 'Berhasil menghapus referensi');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success delete reference', 'Berhasil menghapus referensi');
 
     }
 }

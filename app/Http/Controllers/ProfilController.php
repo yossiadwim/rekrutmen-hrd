@@ -123,7 +123,7 @@ class ProfilController extends Controller
         if ($validatedData) {
             $query = Pelamar::where('id', auth()->user()->id_pelamar)->update($validatedData);
             if ($query) {
-                return redirect('/profil-kandidat/users/' . auth()->user()->slug)->with('success', 'Profil Berhasil Diedit');
+                return redirect('/profil-kandidat/users/' . auth()->user()->uuid)->with('success', 'Profil Berhasil Diedit');
             }
         }
 
@@ -148,7 +148,7 @@ class ProfilController extends Controller
 
         Pelamar::where('id', $user->id_pelamar)->update($validatedData);
 
-        return redirect('/profil-kandidat/users/' . $user->slug)->with('success add description', 'Berhasil mengubah deskripsi');
+        return redirect('/profil-kandidat/users/' . $user->uuid)->with('success add description', 'Berhasil mengubah deskripsi');
     }
 
     public function my_application(User $user)

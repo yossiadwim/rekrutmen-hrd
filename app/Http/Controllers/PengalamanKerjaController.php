@@ -110,9 +110,9 @@ class PengalamanKerjaController extends Controller
         $query = PengalamanKerja::where('id', '=', $pengalamanKerja->id)->update($validatedData);
 
         if ($query) {
-            return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success update work experience', 'Berhasil mengubah pengalaman kerja');
+            return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success update work experience', 'Berhasil mengubah pengalaman kerja');
         } else {
-            return redirect('/profil-kandidat/users/' . $user_slug[0])->with('error update work experience', 'Gagal mengubah pengalaman kerja');
+            return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('error update work experience', 'Gagal mengubah pengalaman kerja');
         }
     }
 
@@ -130,6 +130,6 @@ class PengalamanKerjaController extends Controller
 
         PengalamanKerja::destroy($pengalamanKerja->id);
 
-        return redirect('/profil-kandidat/users/' . $user_slug[0])->with('success delete work experience', 'Berhasil menghapus pengalaman kerja');
+        return redirect('/profil-kandidat/users/' . $user[0]->uuid)->with('success delete work experience', 'Berhasil menghapus pengalaman kerja');
     }
 }

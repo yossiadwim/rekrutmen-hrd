@@ -31,12 +31,19 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // 'firebase' => [
+    //     'project_id' => env('FIREBASE_PROJECT_ID'),
+    //     'credentials' => [
+    //         'file' => env('FIREBASE_CREDENTIALS'),
+
+    //     ],
+    //     'database_url' => '<your-firebase-database-url>',
+    // ],
+
     'firebase' => [
-        'credentials' => [
-            'file' => env('FIREBASE_CREDENTIALS'),
-        ],
-        'database_url' => '<your-firebase-database-url>',
-    ],
-    
+        'project_id' => env('FIREBASE_PROJECT_ID '),
+        'credentials' => env('FIREBASE_CREDENTIALS')
+    ]
+
 
 ];

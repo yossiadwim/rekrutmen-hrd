@@ -38,6 +38,8 @@ class LoginController extends Controller
 
             $signInResult = $this->firebaseAuth->signInWithEmailAndPassword($credential['email'], $credential['password']);
 
+            
+
             if ($signInResult && Auth::attempt($credential)) {
                 if ($user[0]->role == 'admin') {
                     $request->session()->regenerate();

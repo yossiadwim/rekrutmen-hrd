@@ -5,7 +5,7 @@
         </div>
         @if ($referensiExists)
             <div class="col-4">
-                <a href="/profil-kandidat/users/{{ $user->slug }}/reference" class="btn bg-btn btn-success border-0"
+                <a href="/profil-kandidat/users/{{ $user->uuid }}/reference" class="btn bg-btn btn-success border-0"
                     data-bs-toggle="modal" data-bs-target="#referensi"><i class="bi bi-plus-circle-fill"></i> Tambahkan
                     Referensi</a>
             </div>
@@ -94,7 +94,7 @@
     <div class="col-md-12 mt-5 mb-5 d-flex justify-content-center">
         @if (!$referensiExists)
             <!-- Button trigger modal -->
-            <a href="/profil-kandidat/users/{{ $user->slug }}/reference" class="btn btn-success border-0"
+            <a href="/profil-kandidat/users/{{ $user->uuid }}/reference" class="btn btn-success border-0"
                 data-bs-toggle="modal" data-bs-target="#reference"><i class="bi bi-plus-circle-fill"></i> Tambahkan
                 Referensi</a>
 
