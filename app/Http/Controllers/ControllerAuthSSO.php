@@ -51,11 +51,11 @@ public function sso_auth(Request $request)
                 if( $user[0]->role='admin'){
                     $request->session()->regenerate();
                     return response()->json(['success' => $user[0]]);
-                    // return redirect()->intended('/admin-dashboard/lowongan');
+                    // return redirect->('/admin-dashboard/lowongan');
                 }else{
                     $request->session()->regenerate();
                     return response()->json(['success' => $user[0]]);
-                    // return redirect()->intended('/lowongan-kerja');
+                    // return redirect->('/lowongan-kerja');
                 }
                 // return response()->json(['success' => $user[0]]);
             } else {
