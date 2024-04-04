@@ -8,10 +8,12 @@ use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ApplicationFormController;
+use App\Http\Controllers\ControllerAuthSSO;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FirebaseAuthController;
 use App\Http\Controllers\PengalamanKerjaController;
 use App\Http\Controllers\ReferensiController;
+
 use App\Models\Lowongan;
 use App\Models\TesTertulis;
 
@@ -33,6 +35,8 @@ Route::get('/lowongan-kerja/{lowongan:slug}/detail', [LowonganKerjaController::c
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/sso-auth', [ControllerAuthSSO::class, 'sso_auth'])->name('sso-auth');;
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
