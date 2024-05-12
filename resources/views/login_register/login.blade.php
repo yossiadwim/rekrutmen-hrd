@@ -126,4 +126,7 @@
             loader.style.display = 'none';
         }, 5000); // Simulate a 2-second delay; replace with actual form submission time
     });
+
+
+    
 </script>

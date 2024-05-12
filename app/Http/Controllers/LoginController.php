@@ -44,18 +44,18 @@ class LoginController extends Controller
             if ($signInResult && Auth::attempt($credential)) {
                 if ($user[0]->role == 'admin') {
                     $request->session()->regenerate();
-                    return redirect()->intended('/admin-dashboard/lowongan');
+                    return redirect('/admin-dashboard/lowongan');
                 } elseif ($user[0]->role == 'user') {
                     $request->session()->regenerate();
-                    return redirect()->intended('/lowongan-kerja');
+                    return redirect('/lowongan-kerja');
                 }
             } elseif ($signInResult == null && Auth::attempt($credential)) {
                 if ($user[0]->role == 'admin') {
                     $request->session()->regenerate();
-                    return redirect()->intended('/admin-dashboard/lowongan');
+                    return redirect('/admin-dashboard/lowongan');
                 } elseif ($user[0]->role == 'user') {
                     $request->session()->regenerate();
-                    return redirect()->intended('/lowongan-kerja');
+                    return redirect('/lowongan-kerja');
                 }
             }
             // Authentication successful, handle further actions

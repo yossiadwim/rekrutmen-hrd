@@ -24,21 +24,14 @@ class ControllerAuthSSO extends Controller
         error_log($token);
         if ($token) {
             try {
-
-                error_log('b4 login');
                 $signInResult = $this->firebaseAuth->signInWithCustomToken($token);
-                error_log(json_encode($signInResult));
                 if ($signInResult) {
 
                     $user = $signInResult->data();
 
-                    error_log(json_encode($user));
-
-
                     $idToken = $user['idToken'];
 
                     $verifiedIdToken = $this->firebaseAuth->verifyIdToken($idToken);
-
 
                     $uid = $verifiedIdToken->claims()->get('sub');
 
@@ -48,17 +41,21 @@ class ControllerAuthSSO extends Controller
                     $user = User::where('email', $userId->email)
                         ->get();
 
+                    error_log(json_encode($user[0]));
 
-                    if ($user[0]->role = 'admin') {
-                        $request->session()->regenerate();
-                        return response()->json(['success' => $user[0]]);
-                        // return redirect('/admin-dashboard/lowongan');
-                    } else {
-                        $request->session()->regenerate();
-                        return response()->json(['success' => $user[0]]);
-                        // return redirect('/lowongan-kerja');
+                    if($user){
+                        Auth::loginUsingId($user[0]->id);;
+                        if ($user[0]->role === 'admin') {
+                            $request->session()->regenerate();
+                            // return response()->json(['success' => $user[0]]);
+                            return redirect('/admin-dashboard/lowongan');
+                        } else {
+                            $request->session()->regenerate();
+                            // return response()->json(['success' => $user[0]]);
+                            return redirect('/lowongan-kerja');
+                        }
                     }
-                    // return response()->json(['success' => $user[0]]);
+                    
                 } else {
                     return response()->json(['error' => 'Failed to sign in with custom token'], 500);
                 }
