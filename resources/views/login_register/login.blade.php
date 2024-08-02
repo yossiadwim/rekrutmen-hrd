@@ -47,12 +47,7 @@
                     </div>
                 @endif
 
-                {{-- @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                @endif --}}
-
+            
                 <main class="form-signin w-100 m-auto">
                     <h1 class="mb-3 fw-bold text-center">Login</h1>
                     <h6 class="mt-3 mb-5 fw-normal text-center">Masukkan email dan sandi anda.</h6>

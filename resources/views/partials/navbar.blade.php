@@ -68,7 +68,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle  text-dark" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ auth()->user()->id_pelamar == null ? auth()->user()->karyawan->nama_karyawan : auth()->user()->pelamar->nama_pelamar }}
+                                {{-- {{ auth()->user()->id_pelamar == null ? auth()->user()->karyawan->nama_karyawan : auth()->user()->pelamar->nama_pelamar }} --}}
+                                {{ auth()->user()->id_pelamar == null ? auth()->user()->slug : auth()->user()->pelamar->nama_pelamar }}
                             </a>
 
                             @can('user')
