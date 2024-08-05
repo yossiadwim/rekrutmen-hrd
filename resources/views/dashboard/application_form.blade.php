@@ -39,7 +39,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a
-                            href="/admin-dashboard/lowongan/{{ $lowongan->slug }}/detail-pelamar/{{ $user->slug }}">Home</a>
+                            href="/admin-dashboard/lowongan/{{ $lowongan->slug }}/detail-pelamar/{{ $user->uuid }}">Detail Pelamar</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Application Form Pelamar</li>
                 </ol>

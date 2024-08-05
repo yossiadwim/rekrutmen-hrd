@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/b3626122b8.js" crossorigin="anonymous"></script>
 
 </head>
@@ -47,7 +48,7 @@
                     </div>
                 @endif
 
-            
+
                 <main class="form-signin w-100 m-auto">
                     <h1 class="mb-3 fw-bold text-center">Login</h1>
                     <h6 class="mt-3 mb-5 fw-normal text-center">Masukkan email dan sandi anda.</h6>
@@ -87,15 +88,12 @@
                     </form>
 
                     <small class="d-block text-center mt-3">Belum mempunyai akun? <a href="/register">Daftar</a></small>
-                    <small class="d-block text-center mt-3">atau login dengan</small>
-                    {{-- <div class="d-flex align-items-center justify-content-center">
-                        <a href="{{ route('google-auth') }}"><img src="{{ asset('img/google.png') }}" class="mt-4"
-                                alt="Gambar" width="40" height="40"></a>
-                    </div> --}}
+
                 </main>
             </div>
         </div>
     </div>
+    
     <div id="loader" class="loader-wrapper" style="display: none;">
         <div class="loader"></div>
         <div class="mx-2 fw-bold text-light">Loading...</div>
@@ -121,7 +119,4 @@
             loader.style.display = 'none';
         }, 5000); // Simulate a 2-second delay; replace with actual form submission time
     });
-
-
-    
 </script>

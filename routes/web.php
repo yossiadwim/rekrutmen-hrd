@@ -9,6 +9,7 @@ use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ApplicationFormController;
 use App\Http\Controllers\ControllerAuthSSO;
+use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FirebaseAuthController;
 use App\Http\Controllers\PengalamanKerjaController;
@@ -35,6 +36,8 @@ Route::get('/lowongan-kerja/{lowongan:slug}/detail', [LowonganKerjaController::c
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/loginAdmin', [LoginController::class, 'loginAdmin']);
+Route::post('/loginAdmin', [LoginController::class, 'authenticateAdmin']);
 
 Route::get('/sso-auth', [ControllerAuthSSO::class, 'sso_auth'])->name('sso-auth');
 
@@ -83,6 +86,11 @@ Route::resource('/pendidikan', PendidikanController::class);
 
 Route::resource('/referensi', ReferensiController::class);
 
+Route::get('/dashboard', [Dashboard::class, 'dashboard']);
+Route::get('/user', [Dashboard::class, 'user']);
+Route::post('/user-admin/create', [Dashboard::class, 'createAdmin']);
+
+
 Route::middleware('authlogin')->group(function () {
     Route::put('/admin-dashboard/tesTertulis/edit-schedule/{tesTertulis}', [AdminDashboardController::class, 'editScheduleTest']);
     Route::get('/admin-dashboard/lowongan/createSlug', [AdminDashboardController::class, 'checkSlug']);
@@ -104,5 +112,3 @@ Route::middleware('authlogin')->group(function () {
     Route::post('/admin-dashboard/lowongan/{lowongan:slug}/detail-pelamar/reference-check', [AdminDashboardController::class, 'referenceCheck']);
     Route::resource('/admin-dashboard/lowongan', AdminDashboardController::class);
 });
-
-

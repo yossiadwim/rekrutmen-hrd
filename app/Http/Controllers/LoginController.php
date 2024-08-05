@@ -31,9 +31,6 @@ class LoginController extends Controller
             'password' => 'required|min:5',
         ]);
 
-        if($credential){
-            
-        }
         $user = User::where('email', $credential['email'])
             ->get();
 
@@ -95,5 +92,29 @@ class LoginController extends Controller
 
             return redirect('/lowongan-kerja');
         }
+    }
+
+    public function loginAdmin()
+    {
+        return view('login_register.loginAdmin');
+    }
+
+    public function authenticateAdmin(Request $request)
+    {
+
+        $validated_data = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'required',
+        ]);
+
+        $login = Auth::attempt($validated_data);
+
+        if ($login) {
+            $request->session()->regenerate();
+
+            return redirect('/dashboard');
+        }
+
+        return back()->with('loginError', 'Email atau Password salah');
     }
 }

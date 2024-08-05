@@ -47,7 +47,7 @@ return [
     'distinct' => 'The :attribute field has a duplicate value.',
     'doesnt_end_with' => 'The :attribute may not end with one of the following: :values.',
     'doesnt_start_with' => 'The :attribute may not start with one of the following: :values.',
-    'email' => 'harus menggunakan alamat :attribute yang valid',
+    'email' => ':attribute tidak valid',
     // 'email' => 'The :attribute must be a valid email address.',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'enum' => 'The selected :attribute is invalid.',
